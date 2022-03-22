@@ -2,6 +2,11 @@ let grid = document.getElementById("grid");
 
 let btn = document.getElementById("bottone");
 
+let array = [];
+
+let arrayBombe = [];
+
+
 let difficoltà = 0;
 
 btn.addEventListener ('click', function (){
@@ -17,8 +22,6 @@ btn.addEventListener ('click', function (){
     generatoreBox(difficoltà)
 })
 
-
-
 function generatoreBox (difficoltà) {
     let numeroBox = 0;
     
@@ -30,13 +33,28 @@ function generatoreBox (difficoltà) {
         numeroBox = 49;
     }
     
+    for (i=1; i <=numeroBox + 1; i++) {
+        array.push(i);
+    }
+
+    shuffle(array)
+    console.log (array)
+
+    while (arrayBombe.length < 16) {
+        const randomNumber = Math.floor(Math.random() * numeroBox) + 1;
+        if (!arrayBombe.includes(randomNumber)) {
+            arrayBombe.push(randomNumber);
+        }
+    }
+    console.log(`I numeri con le bombe sono ${arrayBombe}`)
+
     grid.innerHTML = ""
 
     for (let i = 1; i <= numeroBox; i++) {
         let box = document.createElement("div");
         box.classList.add("box","d-flex","text-center","align-items-center","justify-content-center", "fw-bold")
         grid.appendChild(box)
-        box.innerHTML = i
+        box.innerHTML = array [i]
 
         if (difficoltà == 1) {
             box.classList.add("easy")
@@ -46,10 +64,19 @@ function generatoreBox (difficoltà) {
             box.classList.add("hard")
         }
     
-        box.addEventListener ('click', toggle)
-    } 
+        box.addEventListener("click",
+            function colorOnClick(){
+            const clickedNumber = parseInt(this.innerText);
+            if (arrayBombe.includes(clickedNumber)){
+                this.classList.add("bg-red")
+                content.removeEventListener("click", colorOnClick())
+            } else{
+                this.classList.add("bg-blue")
+            }
+        })
+    }
 }
 
-function toggle () {
-    this.classList.toggle('clicked')
+function shuffle (array) {
+    array.sort ( () => ( Math.random () - 0.5 ))
 }

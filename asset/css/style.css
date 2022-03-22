@@ -62,9 +62,14 @@ main {
     height: calc(100% / 7);
 }
 
-.clicked {
+.bg-blue {
     background-color: #6495ED;
     color: white;
+}
+
+.bg-red {
+    background-color: red;
+    color: black;
 }
 
 footer {
