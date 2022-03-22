@@ -13,9 +13,13 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 
 BONUS:
 1- quando si clicca su una bomba e finisce la partita, evitare che si possa cliccare su altre celle
+
 2- quando si clicca su una bomba e finisce la partita, il software scopre tutte le bombe nascoste
+
 3- l'utente indica un livello di difficoltà in base al quale viene generato un numero variabile di celle:
+
 con difficoltà 1 => tra 1 e 100
 con difficoltà 2 => tra 1 e 81
 con difficoltà 3 => tra 1 e 49
+
 Le bombe dovranno essere generate nello stesso range delle caselle di gioco.
