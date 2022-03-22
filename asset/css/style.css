@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-green: #7FFFD4;
+    --background-white: #fff;
+    --padding-box: 100px;
+}
+
+body {
+    background-color: var(--background-green);
+}
+
+header {
+    background-color: var(--background-white);
+}
+
+#difficulty{
+    width: 250px;
+    border: 1px solid black;
+}
+
+#bottone {
+    border-radius: 5px;
+    border: 1px solid black;
+    height: 30px;
+}
+
+main {
+    padding: var(--padding-box);
+}
+
+.griglia {
+    border: 1px solid black;
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.box{
+    border: 1px solid black;
+    padding: 15px 10px;
+}
+
+.easy {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.medium {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.hard {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.clicked {
+    background-color: #6495ED;
+    color: white;
+}
+
+footer {
+    background-color: var(--background-white);
+}
